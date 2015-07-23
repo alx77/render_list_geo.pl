@@ -1,5 +1,5 @@
 # renderd_list_geo.pl
-Perl script for automatic rendering OSM tiles for renderd+mod_tile with using geographic coordinates
+Perl script for automatic rendering OSM tiles for renderd+mod_tile with using geographic coordinates (WGS-84)
 ###Usage:
 ```perl
 ./renderd_list_geo.pl -n <n> -z <z> -Z <Z> -x <x> -X <X> -y <y> -Y <Y>
