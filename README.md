@@ -9,10 +9,10 @@ where:
 <n> - number of concurrent threads
 <z> - render tiles from this zoom level
 <Z> - render tiles to this zoom level
-<x> - render tiles from this latitude
-<X> - render tiles to this latitude
-<y> - render tiles from this longitude
-<Y> - render tiles to this longitude
+<x> - render tiles from this longitude
+<X> - render tiles to this longitude
+<y> - render tiles from this latitude
+<Y> - render tiles to this latitude
 ```
 ###sample
 ```perl
