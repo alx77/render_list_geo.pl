@@ -5,7 +5,7 @@ use Getopt::Std;
 use Math::Trig;
 
 my $options = {};
-getopts("n:x:X:y:Y:z:Z:h", $options);
+getopts("n:m:x:X:y:Y:z:Z:h", $options);
 
 if ($options->{h}) {
   print "options: (x,X,y,Y,z,Z - required, no checks, small letters should be less)\n";  
