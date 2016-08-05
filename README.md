@@ -16,7 +16,11 @@ where:
 <Y> - render tiles to this latitude
 ```
 ###sample
-```perl
-#for Ukraine
+```bash
+#Ukraine
 ./render_list_geo.pl -n 2 -m map_name -z 6 -Z 15 -x 21.8 -X 40.7 -y 44.03 -Y 52.6
+#Belgium (using three threads)
+./render_list_geo.pl -n 3 -z 6 -Z 16 -x 2.5 -X 6.5 -y 49.4 -Y 51.6
+#The Netherlands
+./render_list_geo.pl -n 2 -m default -x 3.275104 -X 7.103310 -y 50.758069 -Y 53.662826 -z 15 -Z 18
 ```
