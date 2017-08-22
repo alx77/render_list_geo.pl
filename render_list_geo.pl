@@ -5,11 +5,12 @@ use Getopt::Std;
 use Math::Trig;
 
 my $options = {};
-getopts("n:m:x:X:y:Y:z:Z:h", $options);
+getopts("n:l:m:x:X:y:Y:z:Z:h", $options);
 
 if ($options->{h}) {
-  print "options: (x,X,y,Y,z,Z - required, no checks, small letters should be less)\n";  
+  print "options: (x,X,y,Y,z,Z - required, no checks, small letters should be less)\n";
   print "  -n <n>         number of used concurrent threads\n";
+  print "  -l <l>         maximum system load (defaults to 16)\n";
   print "  -m <m>         name of map\n";
   print "  -x <x>, -X <x> start and end longitude (in geographic coordinates, WGS84)\n";
   print "  -y <y>, -Y <y> start and end latitude (in geographic coordinates, WGS84)\n";
@@ -44,8 +45,9 @@ if ($options->{x} && $options->{X} &&
 	#be careful! y and Y used in reversed order
 	$cmd="render_list -a -z ".$iz." -Z ".$iz." -x ".$x." -X ".$X." -y ".$Y." -Y ".$y;
 	if ($options->{n}) {$cmd = $cmd." -n ".$options->{n}};
-        if ($options->{m}) {$cmd = $cmd." -m ".$options->{m}};
-        print $cmd."\n";
+	if ($options->{m}) {$cmd = $cmd." -m ".$options->{m}};
+	if ($options->{l}) {$cmd = $cmd." -l ".$options->{l}};
+  print $cmd."\n";
 	system($cmd);
 	print("\nZoom factor: ".$iz." finished at\n");
 	system("date");
