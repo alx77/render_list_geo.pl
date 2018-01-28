@@ -21,9 +21,12 @@ if ($options->{h}) {
 
 my ($z, $Z);
 my $bulkSize=8;
-if ($options->{x} && $options->{X} &&
-    $options->{y} && $options->{Y} &&
-    $options->{z} && $options->{Z})
+if (($options->{x} || $options->{x}==0) &&
+    ($options->{X} || $options->{X}==0) &&
+    ($options->{y} || $options->{y}==0) && 
+    ($options->{Y} || $options->{Y}==0) &&
+    ($options->{z} || $options->{z}==0) && 
+    ($options->{Z} || $options->{Z}==0))
 {
     print "\nRendering started at: ";
     system("date");
