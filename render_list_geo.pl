@@ -5,13 +5,14 @@ use Getopt::Std;
 use Math::Trig;
 
 my $options = {};
-getopts("n:l:m:x:X:y:Y:z:Z:h", $options);
+getopts("n:l:m:f:x:X:y:Y:z:Z:h", $options);
 
 if ($options->{h}) {
   print "options: (x,X,y,Y,z,Z - required, no checks, small letters should be less)\n";
   print "  -n <n>         number of used concurrent threads\n";
   print "  -l <l>         maximum system load (defaults to 16)\n";
   print "  -m <m>         name of map\n";
+  print "  -f 1           force rerender\n";
   print "  -x <x>, -X <x> start and end longitude (in geographic coordinates, WGS84)\n";
   print "  -y <y>, -Y <y> start and end latitude (in geographic coordinates, WGS84)\n";
   print "  -z <z>, -Z <z> start and end level value\n";
@@ -50,6 +51,7 @@ if (($options->{x} || $options->{x}==0) &&
 	if ($options->{n}) {$cmd = $cmd." -n ".$options->{n}};
 	if ($options->{m}) {$cmd = $cmd." -m ".$options->{m}};
 	if ($options->{l}) {$cmd = $cmd." -l ".$options->{l}};
+        if ($options->{f}) {$cmd = $cmd." -f ".$options->{f}};
   print $cmd."\n";
 	system($cmd);
 	print("\nZoom factor: ".$iz." finished at\n");
