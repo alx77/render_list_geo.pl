@@ -5,7 +5,7 @@ use Getopt::Std;
 use Math::Trig;
 
 my $options = {};
-getopts("n:l:m:fx:X:y:Y:z:Z:h", $options);
+getopts("n:l:m:s:t:fx:X:y:Y:z:Z:h", $options);
 
 if ($options->{h}) {
   print "options: (x,X,y,Y,z,Z - required, no checks, small letters should be less)\n";
@@ -13,6 +13,8 @@ if ($options->{h}) {
   print "  -l <l>         maximum system load (defaults to 16)\n";
   print "  -m <m>         name of map\n";
   print "  -f             force rerender\n";
+  print "  -s             socket\n";
+  print "  -t             tile dir\n";
   print "  -x <x>, -X <x> start and end longitude (in geographic coordinates, WGS84)\n";
   print "  -y <y>, -Y <y> start and end latitude (in geographic coordinates, WGS84)\n";
   print "  -z <z>, -Z <z> start and end level value\n";
@@ -52,6 +54,8 @@ if (($options->{x} || $options->{x}==0) &&
 	if ($options->{m}) {$cmd = $cmd." -m ".$options->{m}};
 	if ($options->{l}) {$cmd = $cmd." -l ".$options->{l}};
         if ($options->{f}) {$cmd = $cmd." -f ".$options->{f}};
+	if ($options->{s}) {$cmd = $cmd." -s ".$options->{s}};
+	if ($options->{t}) {$cmd = $cmd." -t ".$options->{t}};
   print $cmd."\n";
 	system($cmd);
 	print("\nZoom factor: ".$iz." finished at\n");
